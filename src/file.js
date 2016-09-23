@@ -2,7 +2,7 @@ const {dialog} = require('electron').remote
 const fs = require('fs');
 const inky = require('./inky');
 
-exports.openHtmlPage = function (editor) {
+exports.openHtmlTemplate = function (editor) {
   dialog.showOpenDialog({ properties: ['openFile']}, function(filepath) {
     if (filepath) {
       var content = fs.readFileSync(filepath[0], 'utf8');
@@ -12,7 +12,7 @@ exports.openHtmlPage = function (editor) {
   });
 }
 
-exports.saveHtmlPage = function (editor) {
+exports.saveHtmlTemplate = function (editor) {
   dialog.showSaveDialog(function(filepath) {
     if (filepath) {
       fs.writeFileSync(filepath, editor.getValue())
