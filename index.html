@@ -28,9 +28,22 @@
           height: 100%;
         }
       }
+      .bar-actions {
+        z-index: 9999;
+        position: fixed;
+        bottom: 10px;
+        right: 15px;
+      }
+      .btn {
+        border-radius: 0;
+      }
     </style>
   </head>
   <body>
+    <div class="bar-actions">
+      <button class="btn btn-default btn-open">Open</button>
+      <button class="btn btn-primary btn-export">Export</button>
+    </div>
     <div class="container-fluid">
       <div class="row">
         <div id="editor" class="col-md-6"></div>

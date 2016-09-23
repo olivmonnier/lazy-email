@@ -1,11 +1,12 @@
 // This file is required by the index.html file and will
 // be executed in the renderer process for that window.
 // All of the Node.js APIs are available in this process.
-var CodeMirror = require('codemirror');
+const {dialog} = require('electron').remote
+const CodeMirror = require('codemirror');
 require('codemirror/mode/htmlmixed/htmlmixed');
 
-var initVal = '<container>\n\t<row>\n\t\t<columns>\n\t\t\t<h1>Hello World</h1>\n\t\t</columns>\n\t</row>\n</container>';
-var editor = CodeMirror(document.getElementById('editor'), {
+const initVal = '<container>\n\t<row>\n\t\t<columns>\n\t\t\t<h1>Hello World</h1>\n\t\t</columns>\n\t</row>\n</container>';
+const editor = CodeMirror(document.getElementById('editor'), {
   mode: 'htmlmixed',
   lineNumbers: true,
   autofocus: true,
@@ -13,10 +14,10 @@ var editor = CodeMirror(document.getElementById('editor'), {
   value: initVal
 });
 
-var cheerio = require('cheerio');
-var Inky = require('inky/lib/inky');
-
-var inky;
+const fs = require('fs');
+const cheerio = require('cheerio');
+const Inky = require('inky/lib/inky');
+let inky;
 
 window.setupInky = function(opts, cb) {
   opts = opts || {};
@@ -56,13 +57,34 @@ if(typeof(window) !== 'undefined') {
     transformHtml(elems);
   });
 
+  $(document).on('click', '.btn-export', function() {
+    saveHtmlPage();
+  });
+
+  $(document).on('click', '.btn-open', function() {
+    openHtmlPage();
+  });
+
   setTimeout(function() {
     transformHtml($(initVal));
   }, 800);
 }
 function transformHtml(elems) {
-
   for(var i = 0; i < elems.length; i++) {
     window.runInky(elems[i]);
   }
+}
+
+function openHtmlPage() {
+  dialog.showOpenDialog({ properties: ['openFile']}, function(filepath) {
+    var content = fs.readFileSync(filepath[0], 'utf8');
+
+    editor.setValue(content);
+  });
+}
+
+function saveHtmlPage() {
+  dialog.showSaveDialog(function(filepath) {
+    fs.writeFileSync(filepath, editor.getValue())
+  });
 }
