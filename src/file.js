@@ -1,7 +1,10 @@
 const {dialog} = require('electron').remote
 const fs = require('fs');
 const inky = require('./inky');
+const nunjucks = require('nunjucks');
 let FILE_OPEN = null;
+
+nunjucks.configure({ autoescape: true });
 
 exports.openHtmlTemplate = function (editor) {
   dialog.showOpenDialog({ properties: ['openFile']}, function(filepath) {
@@ -27,7 +30,10 @@ exports.saveHtmlTemplate = function (editor) {
   }
 }
 
-exports.transformHtml = function(elems) {
+exports.transformHtml = function(elemString) {
+  const htmlString = nunjucks.renderString(elemString);
+  const elems = $(htmlString);
+
   for(var i = 0; i < elems.length; i++) {
     inky.runInky(elems[i]);
   }

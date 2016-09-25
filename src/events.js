@@ -10,8 +10,6 @@ module.exports = function(editor) {
   });
 
   editor.on('change', function() {
-    var elems = $(editor.getValue());
-
-    fileSystem.transformHtml(elems);
+    fileSystem.transformHtml(editor.getValue());
   });
 }

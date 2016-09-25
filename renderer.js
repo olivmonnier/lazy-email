@@ -6,7 +6,7 @@ const file = require('./src/file');
 const CodeMirror = require('codemirror');
 require('codemirror/mode/htmlmixed/htmlmixed');
 
-const initVal = '<container>\n\t<row>\n\t\t<columns>\n\t\t\t<h1>Hello World</h1>\n\t\t</columns>\n\t</row>\n</container>';
+const initVal = '<container>\n\t<row>\n\t\t{% for i in range(0, 2) %}\n\t\t\t<columns>\n\t\t\t\t<h1>Hello World</h1>\n\t\t\t</columns>\n\t\t{% endfor %}\n\t</row>\n</container>';
 const editor = CodeMirror(document.getElementById('editor'), {
   mode: 'htmlmixed',
   lineNumbers: true,
@@ -19,6 +19,6 @@ if(typeof(window) !== 'undefined') {
   events(editor);
 
   setTimeout(function() {
-    file.transformHtml($(initVal));
+    file.transformHtml(initVal);
   }, 800);
 }
