@@ -1,10 +1,12 @@
 {
-  "name": "slinky-electron",
+  "name": "email-builder",
   "version": "1.0.0",
   "description": "A minimal Electron application",
   "main": "main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "build": "electron-packager . --all",
+    "build-win": "electron-packager . --platform=win32 --out=dist/ --overwrite"
   },
   "repository": {
     "type": "git",
@@ -17,13 +19,15 @@
   },
   "homepage": "https://github.com/electron/electron-quick-start#readme",
   "devDependencies": {
-    "electron": "^1.3.4"
+    "electron": "^1.3.4",
+    "electron-packager": "^8.0.0"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
     "cheerio": "^0.22.0",
     "codemirror": "^5.19.0",
     "inky": "^1.3.7",
+    "inline-css": "^2.2.2",
     "jquery": "^3.1.1",
     "nunjucks": "^2.5.2"
   }
