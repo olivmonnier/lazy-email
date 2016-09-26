@@ -12,25 +12,34 @@
         height: 100%;
       }
 
-      body > .container-fluid > .row {
+      .block-table {
+        height: calc(100% - 8px);
+        width: 100%;
+      }
+
+      .block-cell {
+        height: 50%;
+        width: 100%;
+      }
+
+      .CodeMirror {
         height: 100%;
       }
-      body > .container-fluid > .row > [class*="col-"] {
-        height: 50%;
-      }
-      body > .container-fluid > .row > [class*="col-"]:first-child {
-        padding-bottom: 8px;
-      }
-      body > .container-fluid {
-        height: calc(100% - 8px);
-      }
-      .CodeMirror { height: 100%; }
 
       @media (min-width: 970px) {
-        body > .container-fluid > .row > [class*="col-"] {
+        .block-table {
+          display: table;
+        }
+        .block-cell {
+          display:table-cell;
+          vertical-align: top;
           height: 100%;
         }
+        .block-cell:first-child {
+          width: 40%;
+        }
       }
+
       .bar-actions {
         z-index: 9999;
         position: fixed;
@@ -47,12 +56,10 @@
       <button class="btn btn-default btn-open">Open</button>
       <button class="btn btn-primary btn-export">Save</button>
     </div>
-    <div class="container-fluid">
-      <div class="row">
-        <div id="editor" class="col-md-6"></div>
-        <div class="col-md-6">
-          <iframe id="htmlrender" src="view.html" width="100%" height="100%"></iframe>
-        </div>
+    <div class="block-table">
+      <div id="editor" class="block-cell"></div>
+      <div class="block-cell">
+        <iframe id="htmlrender" src="view.html" width="100%" height="100%"></iframe>
       </div>
     </div>
   </body>
