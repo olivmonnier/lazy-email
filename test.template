@@ -1,3 +1,5 @@
+{% extends "layout.html" %}
+{% block body %}
 <container>
 	<row>
 		{% for i in range(0, 2) %}
@@ -7,3 +9,4 @@
 		{% endfor %}
 	</row>
 </container>
+{% endblock %}

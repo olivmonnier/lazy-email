@@ -33,8 +33,10 @@ exports.saveHtmlTemplate = function (editor) {
 
 exports.transformHtml = function(elemString) {
   const htmlString = nunjucks.renderString(elemString);
-  const elems = $(htmlString);
-  
+  document.getElementById('htmlrender').contentWindow.document.querySelector('html').innerHTML = htmlString;
+  const body = document.getElementById('htmlrender').contentWindow.document.body;
+  const elems = $($(body).html());
+
   for(var i = 0; i < elems.length; i++) {
     if (elems[i] instanceof HTMLElement) {
       inky.runInky(elems[i]);
