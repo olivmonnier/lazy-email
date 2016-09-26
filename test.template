@@ -1,7 +1,9 @@
 <container>
 	<row>
-		<columns>
-			<h1>Hello World</h1>
-		</columns>
+		{% for i in range(0, 2) %}
+			<columns>
+				<h1>Hello World</h1>
+			</columns>
+		{% endfor %}
 	</row>
 </container>
