@@ -28,7 +28,7 @@ exports.runInky = function(opts, elem) {
   setupInky(opts, function(transform) {
     transform(elem.outerHTML, function(err, html) {
       if(err === null) {
-        document.getElementById('htmlrender').contentWindow.document.body.innerHTML = html;
+        document.getElementById('htmlrender').contentWindow.document.querySelector('center').innerHTML = html;
       }
     });
   });
