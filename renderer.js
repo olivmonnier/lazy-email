@@ -6,7 +6,7 @@ const file = require('./src/file');
 const CodeMirror = require('codemirror');
 require('codemirror/mode/htmlmixed/htmlmixed');
 const initVal =
-`{% extends "layout.html" %}
+`{% extends "views/layout.html" %}
 {% block body %}
   <container>
     <row>

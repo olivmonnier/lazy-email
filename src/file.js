@@ -5,7 +5,7 @@ const nunjucks = require('nunjucks');
 const inlineCss = require('inline-css');
 let FILE_OPEN = null;
 
-nunjucks.configure({ autoescape: true });
+nunjucks.configure('./', { autoescape: true });
 
 exports.openHtmlTemplate = function (editor) {
   dialog.showOpenDialog({ properties: ['openFile']}, function(filepath) {
