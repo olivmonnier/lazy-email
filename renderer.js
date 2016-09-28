@@ -5,6 +5,8 @@ const events = require('./src/events');
 const file = require('./src/file');
 const CodeMirror = require('codemirror');
 require('codemirror/mode/htmlmixed/htmlmixed');
+require('codemirror/addon/hint/show-hint');
+require('codemirror/addon/hint/html-hint');
 const initVal =
 `{% extends "views/layout.html" %}
 {% block body %}
@@ -24,6 +26,7 @@ const editor = CodeMirror(document.getElementById('editor'), {
   lineNumbers: true,
   autofocus: true,
   tabSize: 2,
+  extraKeys: {"Ctrl-Space": "autocomplete"},
   value: initVal
 });
 
