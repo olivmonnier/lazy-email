@@ -47,7 +47,7 @@
       }
 
       .bar-actions {
-        z-index: 9999;
+        z-index: 100;
         position: fixed;
         bottom: 10px;
         right: 10px;
@@ -59,7 +59,7 @@
   </head>
   <body>
     <div class="bar-actions">
-      <button class="btn btn-sm btn-default btn-settings" data-toggle="modal" data-target="#modal-settings"><i class="fa fa-cog"></i></button>
+      <button class="btn btn-sm btn-default btn-settings" data-toggle="modal" data-target="#modal-settings"><i class="fa fa-cog"></i> Config</button>
       <button class="btn btn-sm btn-default btn-open"><i class="fa fa-file-o"></i> Open</button>
       <button class="btn btn-sm btn-primary btn-save"><i class="fa fa-bookmark"></i> Save</button>
       <button class="btn btn-sm btn-success btn-export"><i class="fa fa-share-square-o"></i> Export</button>
@@ -79,7 +79,7 @@
           <div class="modal-body">
             <form class="form-inline">
               <div class="form-group">
-                <label>Template path</label>
+                <label>Templates path : </label>
                 <input type="text" id="input-template-path" class="form-control" />
               </div>
             </form>
@@ -88,9 +88,9 @@
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary">Save changes</button>
           </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+        </div>
+      </div>
+    </div>
   </body>
 
   <script>window.$ = window.jQuery = require('jquery')</script>
