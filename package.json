@@ -27,6 +27,7 @@
     "bootstrap": "^3.3.7",
     "cheerio": "^0.22.0",
     "codemirror": "^5.19.0",
+    "electron-config": "^0.2.1",
     "font-awesome": "^4.6.3",
     "inky": "^1.3.7",
     "inline-css": "^2.2.2",

@@ -3,9 +3,11 @@ const fs = require('fs');
 const inky = require('./inky');
 const nunjucks = require('nunjucks');
 const inlineCss = require('inline-css');
-let FILE_OPEN = null;
 
-nunjucks.configure('./', { autoescape: true });
+exports.changeTemplatePath = function() {
+  nunjucksOptions = { autoescape: true }
+  nunjucks.configure(TEMPLATES_PATH, nunjucksOptions);
+}
 
 exports.openHtmlTemplate = function (editor) {
   dialog.showOpenDialog({ properties: ['openFile']}, function(filepath) {
