@@ -36,6 +36,7 @@ const editor = CodeMirror(document.getElementById('editor'), {
 });
 
 if(typeof(window) !== 'undefined') {
+  $('[data-toggle="tooltip"]').tooltip();
   file.changeTemplatePath();
   events(editor);
 
