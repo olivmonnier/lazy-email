@@ -1,5 +1,5 @@
 # Lazy-email
 
-![capture](./Capture.png)
+![capture](Capture.PNG)
 
 #### License [CC0 (Public Domain)](LICENSE.md)
