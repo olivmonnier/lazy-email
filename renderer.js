@@ -31,6 +31,8 @@ const editor = CodeMirror(document.getElementById('editor'), {
   lineNumbers: true,
   autofocus: true,
   tabSize: 2,
+  lineWrapping: true,
+  theme: 'material',
   extraKeys: {"Ctrl-Space": "autocomplete"},
   value: initVal
 });
